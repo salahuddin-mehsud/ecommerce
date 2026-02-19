@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* Enable dark mode with class strategy */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Or if the above doesn't work, try this: */
+@theme {
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-gray-900);
+}
+
+.dark {
+  --color-background: var(--color-gray-900);
+  --color-foreground: var(--color-white);
+}
