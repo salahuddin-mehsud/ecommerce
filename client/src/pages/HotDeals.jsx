@@ -69,7 +69,7 @@ const HotDeals = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen dark:bg-black text-gray-900 dark:text-white">
         <Navbar />
         <div className="pt-32 flex justify-center items-center">
           <div className="text-center">
@@ -83,7 +83,7 @@ const HotDeals = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen dark:bg-black text-gray-900 dark:text-white">
         <Navbar />
         <div className="pt-32 flex justify-center items-center">
           <div className="text-center">
@@ -101,7 +101,7 @@ const HotDeals = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen dark:bg-black text-gray-900 dark:text-white">
       <Navbar />
 
       <section className="pb-16 pt-4">
@@ -144,7 +144,7 @@ const HotDeals = () => {
                 return (
                   <div 
                     key={product._id} 
-                    className={`bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl overflow-hidden hover:border-red-500/30 transition-all duration-300 ${
+                    className={`dark:bg-black text-gray-900 dark:text-white border border-gray-800 rounded-xl overflow-hidden hover:border-red-500/30 transition-all duration-300 ${
                       outOfStock ? 'opacity-80' : ''
                     }`}
                   >
@@ -250,7 +250,7 @@ const HotDeals = () => {
                       <div className="flex space-x-2">
                         <Link 
                           to={`/product/${product._id}`}
-                          className="flex-1 bg-transparent border border-gray-600 text-white text-center py-1.5 rounded text-xs hover:bg-gray-800"
+                          className="flex-1 bg-transparent border border-gray-600 text-gray-900 dark:text-white text-center py-1.5 rounded text-xs "
                           aria-label={`View details for ${product.name}`}
                         >
                           View

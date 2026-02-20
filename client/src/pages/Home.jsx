@@ -59,8 +59,6 @@ const Home = () => {
       }
     });
     
-    
-    
     // Add all unique categories
     const sortedCategories = Array.from(allCategories).sort();
     return [...categoriesList, ...sortedCategories];
@@ -242,7 +240,10 @@ const Home = () => {
         <div className="pt-32 flex justify-center items-center">
           <div className="text-center">
             <p className="text-red-500 dark:text-red-400">{error}</p>
-            <button onClick={fetchProducts} className="mt-4 bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600">
+            <button 
+              onClick={fetchProducts} 
+              className="mt-4 bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition-colors"
+            >
               Retry
             </button>
           </div>
@@ -432,10 +433,10 @@ const Home = () => {
       </section>
 
       {/* Main Products Section */}
-      <section className="pt-6 mt-0 pb-4 md:pb-0 bg-black">
+      <section className="pt-6 mt-0 pb-4 md:pb-0 bg-white dark:bg-black">
         <div className="px-4 sm:px-6 lg:px-20">
           {/* Filter Tabs with Items Selected on right side */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-5 border-b border-gray-800">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-5 border-b border-gray-300 dark:border-gray-800">
             {/* Filter Buttons with horizontal scroll for mobile */}
             <div className="flex flex-nowrap overflow-x-auto pb-2 mb-4 md:mb-0 md:pb-0 md:overflow-visible scrollbar-hide">
               <div className="flex gap-3">
@@ -446,7 +447,7 @@ const Home = () => {
                     className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                       activeFilter === category
                         ? 'bg-amber-500 text-black'
-                        : 'bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800'
+                        : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
                     }`}
                   >
                     {category}
@@ -458,14 +459,14 @@ const Home = () => {
             {/* Items Selected Counter */}
             <div className="flex items-center">
               <span className="text-amber-500 text-xl font-bold">= {filteredProducts.length}</span>
-              <span className="text-gray-400 ml-2 text-sm">items selected</span>
+              <span className="text-gray-600 dark:text-gray-400 ml-2 text-sm">items selected</span>
             </div>
           </div>
 
           {/* Show message if no products in selected category */}
           {filteredProducts.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-400 text-lg">No products found in the "{activeFilter}" category.</p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">No products found in the "{activeFilter}" category.</p>
               <button
                 onClick={() => setActiveFilter('All')}
                 className="mt-4 bg-amber-500 hover:bg-amber-600 text-black px-6 py-2 rounded-lg font-medium transition-colors"

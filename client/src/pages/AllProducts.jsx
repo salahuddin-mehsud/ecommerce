@@ -250,7 +250,7 @@ const AllProducts = () => {
     for (let i = startPage; i <= endPage; i++) pageNumbers.push(i);
 
     return (
-      <div className="flex justify-center items-center space-x-2 mt-12">
+      <div className="flex justify-center items-center space-x-2 mt-12 dark:bg-black text-gray-900 dark:text-white">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
@@ -290,7 +290,7 @@ const AllProducts = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-black dark:bg-black text-gray-900 dark:text-white">
         <Navbar />
         <div className="pt-24 flex justify-center items-center">
           <div className="text-center">
@@ -304,7 +304,7 @@ const AllProducts = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white">
+      <div className="min-h-screen bg-gray-900 dark:bg-black text-gray-900 dark:text-white">
         <Navbar />
         <div className="pt-24 flex justify-center items-center">
           <div className="text-center">
@@ -319,191 +319,217 @@ const AllProducts = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen dark:bg-black text-gray-900 dark:text-white">
       <Navbar />
 
       <section className="max-w-screen-2xl mx-auto px-4 py-10">
         <div className="grid grid-cols-12 gap-8">
           {/* Left sidebar */}
-          <aside className="col-span-12 border border-gray-700/50 lg:col-span-3">
-            <div className="sticky top-24">
-              <div className="bg-black rounded-md p-6 space-y-6">
-                {/* Search */}
-                <div>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                    <input
-                      type="text"
-                      placeholder="Search products by name..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 rounded bg-gray-900 text-gray-200 border border-gray-700 focus:outline-none"
-                    />
-                  </div>
-                </div>
+<aside className="col-span-12 border border-gray-200 dark:border-gray-700 lg:col-span-3">
+  <div className="sticky top-24">
+    <div className="bg-white dark:bg-black rounded-md p-6 space-y-6">
+      {/* Search */}
+      <div>
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+          <input
+            type="text"
+            placeholder="Search products by name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 rounded bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+          />
+        </div>
+      </div>
 
-                {/* Categories */}
-                <div>
-                  <h3 className="text-sm font-semibold text-gray-300 uppercase">Product Categories</h3>
-                  <ul className="mt-4 space-y-2 text-gray-300">
-                    {categoryList.length === 0 ? (
-                      <li className="text-sm text-gray-400">No categories found</li>
-                    ) : (
-                      categoryList.map((c) => (
-                        <li key={c.name} className="flex justify-between items-center">
-                          <button
-                            onClick={() => {
-                              setSelectedCategory(prev => prev === c.name ? '' : c.name);
-                              setCurrentPage(1);
-                            }}
-                            className={`text-left text-sm hover:text-white transition-all ${selectedCategory === c.name ? 'text-white font-semibold' : ''}`}
-                          >
-                            {c.name}
-                          </button>
-                          <span className="text-xs text-gray-400">({c.count})</span>
-                        </li>
-                      ))
-                    )}
-                  </ul>
-                </div>
+      {/* Categories */}
+      <div>
+        <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase">Product Categories</h3>
+        <ul className="mt-4 space-y-2 text-gray-600 dark:text-gray-400">
+          {categoryList.length === 0 ? (
+            <li className="text-sm text-gray-500">No categories found</li>
+          ) : (
+            categoryList.map((c) => (
+              <li key={c.name} className="flex justify-between items-center">
+                <button
+                  onClick={() => {
+                    setSelectedCategory(prev => prev === c.name ? '' : c.name);
+                    setCurrentPage(1);
+                  }}
+                  className={`text-left text-sm hover:text-amber-500 dark:hover:text-amber-400 transition-all ${
+                    selectedCategory === c.name ? 'text-amber-600 dark:text-amber-400 font-semibold' : ''
+                  }`}
+                >
+                  {c.name}
+                </button>
+                <span className="text-xs text-gray-500">({c.count})</span>
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
 
-                {/* Price filter */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-300 uppercase mb-4">Filter by Price</h4>
-                  
-                  <div className="mb-4">
-                    <div className="text-sm text-gray-400 mb-2">
-                      Up to: ${maxPrice}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      Range: ${priceRange[0]} — ${priceRange[1]}
-                    </div>
-                  </div>
+      {/* Price filter */}
+      <div>
+        <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase mb-4">Filter by Price</h4>
+        
+        <div className="mb-4">
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            Up to: ${maxPrice}
+          </div>
+          <div className="text-xs text-gray-500">
+            Range: ${priceRange[0]} — ${priceRange[1]}
+          </div>
+        </div>
 
-                  <div className="mb-6">
-                    <div className="flex justify-between text-xs text-gray-400 mb-1">
-                      <span>${minPrice}</span>
-                      <span>${maxPrice}</span>
-                    </div>
-                    <input
-                      type="range"
-                      min={priceRange[0]}
-                      max={priceRange[1]}
-                      value={maxPrice}
-                      onChange={handlePriceRangeChange}
-                      className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-amber-500"
-                    />
-                  </div>
+        <div className="mb-6">
+          <div className="flex justify-between text-xs text-gray-500 mb-1">
+            <span>${minPrice}</span>
+            <span>${maxPrice}</span>
+          </div>
+          <input
+            type="range"
+            min={priceRange[0]}
+            max={priceRange[1]}
+            value={maxPrice}
+            onChange={handlePriceRangeChange}
+            className="w-full h-2 bg-gray-300 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-amber-500"
+          />
+        </div>
 
-                  <div className="grid grid-cols-2 gap-2 mb-4">
-                    <button
-                      onClick={() => { setPriceFilter('all'); setCurrentPage(1); }}
-                      className={`px-3 py-2 text-sm rounded ${priceFilter === 'all' ? 'bg-amber-500 text-black' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
-                    >
-                      All Prices
-                    </button>
-                    <button
-                      onClick={resetPriceRange}
-                      className="px-3 py-2 text-sm rounded bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    >
-                      Reset
-                    </button>
-                  </div>
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          <button
+            onClick={() => { setPriceFilter('all'); setCurrentPage(1); }}
+            className={`px-3 py-2 text-sm rounded transition-colors ${
+              priceFilter === 'all' 
+                ? 'bg-amber-500 text-black' 
+                : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+            }`}
+          >
+            All Prices
+          </button>
+          <button
+            onClick={resetPriceRange}
+            className="px-3 py-2 text-sm rounded bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+          >
+            Reset
+          </button>
+        </div>
 
-                  <div className="grid grid-cols-3 gap-2">
-                    <button
-                      onClick={() => { setPriceFilter('under50'); setCurrentPage(1); }}
-                      className={`px-2 py-2 text-xs rounded ${priceFilter === 'under50' ? 'bg-amber-500 text-black' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
-                    >
-                      Under $50
-                    </button>
-                    <button
-                      onClick={() => { setPriceFilter('50to100'); setCurrentPage(1); }}
-                      className={`px-2 py-2 text-xs rounded ${priceFilter === '50to100' ? 'bg-amber-500 text-black' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
-                    >
-                      $50-$100
-                    </button>
-                    <button
-                      onClick={() => { setPriceFilter('over100'); setCurrentPage(1); }}
-                      className={`px-2 py-2 text-xs rounded ${priceFilter === 'over100' ? 'bg-amber-500 text-black' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
-                    >
-                      Over $100
-                    </button>
-                  </div>
-                </div>
+        <div className="grid grid-cols-3 gap-2">
+          <button
+            onClick={() => { setPriceFilter('under50'); setCurrentPage(1); }}
+            className={`px-2 py-2 text-xs rounded transition-colors ${
+              priceFilter === 'under50' 
+                ? 'bg-amber-500 text-black' 
+                : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+            }`}
+          >
+            Under $50
+          </button>
+          <button
+            onClick={() => { setPriceFilter('50to100'); setCurrentPage(1); }}
+            className={`px-2 py-2 text-xs rounded transition-colors ${
+              priceFilter === '50to100' 
+                ? 'bg-amber-500 text-black' 
+                : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+            }`}
+          >
+            $50-$100
+          </button>
+          <button
+            onClick={() => { setPriceFilter('over100'); setCurrentPage(1); }}
+            className={`px-2 py-2 text-xs rounded transition-colors ${
+              priceFilter === 'over100' 
+                ? 'bg-amber-500 text-black' 
+                : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+            }`}
+          >
+            Over $100
+          </button>
+        </div>
+      </div>
 
-                {/* Controls */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-300 uppercase">Controls</h4>
-                  <div className="mt-3 space-y-3">
-                    <div>
-                      <label className="block text-xs text-gray-400 mb-1">Sort By</label>
-                      <select
-                        value={sortBy}
-                        onChange={(e) => { setSortBy(e.target.value); setCurrentPage(1); }}
-                        className="w-full px-3 py-2 border border-gray-700 rounded bg-gray-800 text-gray-200 text-sm"
-                      >
-                        <option value="name">Sort by Name</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                      </select>
-                    </div>
+      {/* Controls */}
+      <div>
+        <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase">Controls</h4>
+        <div className="mt-3 space-y-3">
+          <div>
+            <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Sort By</label>
+            <select
+              value={sortBy}
+              onChange={(e) => { setSortBy(e.target.value); setCurrentPage(1); }}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+            >
+              <option value="name">Sort by Name</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
 
-                    <div>
-                      <label className="block text-xs text-gray-400 mb-1">Products Per Page</label>
-                      <select
-                        value={productsPerPage}
-                        onChange={(e) => handleProductsPerPageChange(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-700 rounded bg-gray-800 text-gray-200 text-sm"
-                      >
-                        <option value="9">9 per page</option>
-                        <option value="13">13 per page</option>
-                        <option value="19">19 per page</option>
-                        <option value="25">25 per page</option>
-                      </select>
-                    </div>
+          <div>
+            <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Products Per Page</label>
+            <select
+              value={productsPerPage}
+              onChange={(e) => handleProductsPerPageChange(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+            >
+              <option value="9">9 per page</option>
+              <option value="13">13 per page</option>
+              <option value="19">19 per page</option>
+              <option value="25">25 per page</option>
+            </select>
+          </div>
 
-                    <div className="flex gap-2 items-center">
-                      <button
-                        onClick={() => setViewMode('grid')}
-                        className={`p-2 ${viewMode === 'grid' ? 'bg-amber-500 text-black' : 'bg-gray-700 text-gray-300'} rounded hover:bg-gray-600`}
-                        aria-label="Grid view"
-                      >
-                        <Grid size={16} />
-                      </button>
-                      <button
-                        onClick={() => setViewMode('list')}
-                        className={`p-2 ${viewMode === 'list' ? 'bg-amber-500 text-black' : 'bg-gray-700 text-gray-300'} rounded hover:bg-gray-600`}
-                        aria-label="List view"
-                      >
-                        <List size={16} />
-                      </button>
-                      <div className="text-sm text-gray-400 ml-auto">{filteredProducts.length} items</div>
-                    </div>
-                  </div>
-                </div>
+          <div className="flex gap-2 items-center">
+            <button
+              onClick={() => setViewMode('grid')}
+              className={`p-2 rounded transition-colors ${
+                viewMode === 'grid' 
+                  ? 'bg-amber-500 text-black' 
+                  : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+              }`}
+              aria-label="Grid view"
+            >
+              <Grid size={16} />
+            </button>
+            <button
+              onClick={() => setViewMode('list')}
+              className={`p-2 rounded transition-colors ${
+                viewMode === 'list' 
+                  ? 'bg-amber-500 text-black' 
+                  : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+              }`}
+              aria-label="List view"
+            >
+              <List size={16} />
+            </button>
+            <div className="text-sm text-gray-600 dark:text-gray-400 ml-auto">{filteredProducts.length} items</div>
+          </div>
+        </div>
+      </div>
 
-                {/* Clear filters button */}
-                <div>
-                  <button
-                    onClick={() => {
-                      setSearchTerm('');
-                      setPriceFilter('all');
-                      setSortBy('name');
-                      setSelectedCategory('');
-                      setProductsPerPage(9);
-                      setViewMode('grid');
-                      setCurrentPage(1);
-                      resetPriceRange();
-                    }}
-                    className="w-full bg-gray-800 text-gray-200 px-3 py-2 rounded hover:bg-amber-500 hover:text-black transition-colors"
-                  >
-                    Clear All Filters
-                  </button>
-                </div>
-              </div>
-            </div>
-          </aside>
+      {/* Clear filters button */}
+      <div>
+        <button
+          onClick={() => {
+            setSearchTerm('');
+            setPriceFilter('all');
+            setSortBy('name');
+            setSelectedCategory('');
+            setProductsPerPage(9);
+            setViewMode('grid');
+            setCurrentPage(1);
+            resetPriceRange();
+          }}
+          className="w-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-2 rounded hover:bg-amber-500 hover:text-black dark:hover:bg-amber-500 transition-colors"
+        >
+          Clear All Filters
+        </button>
+      </div>
+    </div>
+  </div>
+</aside>
 
           {/* Main content */}
           <main className="col-span-12 lg:col-span-9">

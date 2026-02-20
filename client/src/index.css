@@ -3,6 +3,7 @@
 /* Enable dark mode with class strategy */
 @custom-variant dark (&:where(.dark, .dark *));
 
+
 /* Or if the above doesn't work, try this: */
 @theme {
   --color-background: var(--color-white);

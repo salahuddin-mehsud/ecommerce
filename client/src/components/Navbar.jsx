@@ -110,26 +110,22 @@ const Navbar = () => {
               </div>
 
               {/* Desktop Menu - Aligned to start after logo */}
-              <div className="hidden md:flex items-center ml-0">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="
-                      font-[Inter]
-                      text-sm
-                      font-medium
-                      tracking-wide
-                      text-gray-400
-                      hover:text-white
-                      transition-colors
-                      mr-4
-                      last:mr-0"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+          <div className="hidden md:flex items-center ml-0">
+  {navigationItems.map((item) => (
+    <Link
+      key={item.href}
+      to={item.href}
+      className={`
+        font-[Inter] text-sm font-medium tracking-wide mr-4 last:mr-0
+        ${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}
+        transition-colors
+      `}
+    >
+      {item.label}
+    </Link>
+  ))}
+</div>
+
             </div>
 
             {/* Right Section: Controls */}
@@ -527,7 +523,7 @@ const Navbar = () => {
               {/* Bottom section */}
               <div className="mt-auto py-8">
                 <p className="text-gray-500 dark:text-gray-400 text-sm text-center">Daily &copy; 2025</p>
-              </div>
+              </div>                
             </div>
           </div>
         )}
