@@ -209,12 +209,12 @@ const HotDeals = () => {
                     {/* Content - Compact */}
                     <div className="p-4">
                       {/* Product Name */}
-                      <h3 className="font-serif font-semibold text-white mb-1.5 line-clamp-1 text-base">
+                      <h3 className="font-serif font-semibold text-black dark:text-white mb-1.5 line-clamp-1 text-base">
                         {product.name}
                       </h3>
                       
                       {/* Description - Smaller */}
-                      <p className="text-gray-400 text-xs mb-3 line-clamp-2">
+                      <p className="dark:text-gray-400 text-black text-xs mb-3 line-clamp-2">
                         {product.description}
                       </p>
 
