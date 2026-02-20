@@ -4,9 +4,12 @@ const AdminContext = createContext();
 
 export const useAdmin = () => useContext(AdminContext);
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 export const AdminProvider = ({ children }) => {
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     // Check for stored admin session on mount
@@ -21,7 +24,7 @@ export const AdminProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:5000/api/admin/login', {
+      const response = await fetch(`${API_BASE_URL}/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
