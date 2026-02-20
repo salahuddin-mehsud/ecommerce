@@ -110,12 +110,12 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-12 pb-0 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-90"></div>
+      <section className="pt-12 pb-0 relative overflow-hidden bg-white dark:bg-black text-gray-900 dark:text-white ">
+        <div className="absolute inset-0 opacity-90"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Text Content */}
@@ -126,12 +126,12 @@ const About = () => {
               </h1>
               
               <div className="space-y-6">
-                <p className="text-gray-300 text-lg leading-relaxed">
+                <p className="dark:text-gray-300 text-lg leading-relaxed">
                   Born from a passion for timeless style and modern comfort, Daily redefines everyday fashion. 
                   We believe that what you wear daily should make you feel confident, comfortable, and uniquely you.
                 </p>
                 
-                <p className="text-gray-300 text-lg leading-relaxed">
+                <p className="dark:text-gray-300 text-lg leading-relaxed">
                   Our journey began with a simple idea: create clothing that seamlessly blends quality craftsmanship 
                   with contemporary design—pieces that become your go-to favorites, day after day.
                 </p>
@@ -139,25 +139,25 @@ const About = () => {
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="text-amber-400" size={20} />
-                    <span className="text-gray-300">Premium Quality</span>
+                    <span className="dark:text-gray-300">Premium Quality</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Heart className="text-amber-400" size={20} />
-                    <span className="text-gray-300">Sustainable Materials</span>
+                    <span className="dark:text-gray-300">Sustainable Materials</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Truck className="text-amber-400" size={20} />
-                    <span className="text-gray-300">Worldwide Shipping</span>
+                    <span className="dark:text-gray-300">Worldwide Shipping</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Shield className="text-amber-400" size={20} />
-                    <span className="text-gray-300">Ethical Production</span>
+                    <span className="dark:text-gray-300">Ethical Production</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Premium Collection Gallery - Using gallery images from public folder */}
+            {/* Premium Collection Gallery */}
             <div className="lg:w-1/2">
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
@@ -216,21 +216,21 @@ const About = () => {
         </div>
       </section>
 
-      {/* OUR GALLERY Section - Using hero images from src/assets */}
-      <section className="py-16 bg-black">
+      {/* OUR GALLERY Section */}
+      <section className="py-16 bg-white dark:bg-black">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
               OUR <span className="text-amber-400">GALLERY</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
               A visual journey through our craftsmanship and style
             </p>
           </div>
 
           {/* Hero Images Gallery Slider */}
           <div className="relative">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
+            <div className="relative h-[600px] rounded-2xl overflow-hidden border-2 border-gray-200 dark:border-white/20 shadow-2xl">
               <div
                 className="flex transition-transform duration-700 ease-in-out h-full"
                 style={{
@@ -287,7 +287,7 @@ const About = () => {
             </div>
 
             {/* Progress Bar */}
-            <div className="mt-6 bg-gray-800 h-1 rounded-full overflow-hidden">
+            <div className="mt-6 bg-gray-200 dark:bg-gray-800 h-1 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-amber-500 to-amber-600 transition-all duration-1000"
                 style={{ width: `${((currentGalleryIndex + 1) / heroGalleryImages.length) * 100}%` }}
@@ -297,7 +297,7 @@ const About = () => {
 
           {/* Gallery Description */}
           <div className="mt-12 text-center max-w-3xl mx-auto">
-            <p className="text-gray-300 text-lg">
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
               Explore our curated hero collection showcasing the essence of Daily. From design to production, 
               each image captures the dedication and passion we put into every piece we create.
             </p>
@@ -306,61 +306,61 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="pt-12 pb-8 bg-black">
+      <section className="pt-12 pb-8 bg-white dark:bg-black">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
               OUR <span className="text-amber-400">PROMISE</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
               Three pillars that define our commitment to you and the planet
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 group hover:border-amber-400/30 transition-all duration-300">
+            <div className="bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 group hover:border-amber-400/30 transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">👔</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Timeless Design</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Timeless Design</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
                 We create clothing that transcends trends. Each piece is thoughtfully designed to remain 
                 stylish season after season, focusing on clean lines and versatile silhouettes.
               </p>
-              <div className="flex items-center text-amber-400 text-sm font-medium">
+              <div className="flex items-center text-amber-500 dark:text-amber-400 text-sm font-medium">
                 <span>Discover Our Collection</span>
                 <span className="ml-2">→</span>
               </div>
             </div>
             
             {/* Card 2 */}
-            <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 group hover:border-amber-400/30 transition-all duration-300">
+            <div className="bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 group hover:border-amber-400/30 transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">🌱</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Sustainable Craft</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Sustainable Craft</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
                 Committed to a better future, we use eco-friendly materials and ethical production methods. 
                 Every garment tells a story of mindful creation and respect for our planet.
               </p>
-              <div className="flex items-center text-amber-400 text-sm font-medium">
+              <div className="flex items-center text-amber-500 dark:text-amber-400 text-sm font-medium">
                 <span>Learn About Our Process</span>
                 <span className="ml-2">→</span>
               </div>
             </div>
             
             {/* Card 3 */}
-            <div className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-2xl p-8 group hover:border-amber-400/30 transition-all duration-300">
+            <div className="bg-gradient-to-br from-gray-100 to-white dark:from-gray-900 dark:to-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 group hover:border-amber-400/30 transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-2xl">✨</span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Exceptional Comfort</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Exceptional Comfort</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
                 Premium fabrics that feel as good as they look. We obsess over the details—from stitching 
                 to seams—to ensure your Daily wear is your most comfortable wear.
               </p>
-              <div className="flex items-center text-amber-400 text-sm font-medium">
+              <div className="flex items-center text-amber-500 dark:text-amber-400 text-sm font-medium">
                 <span>Experience Quality</span>
                 <span className="ml-2">→</span>
               </div>
@@ -371,7 +371,7 @@ const About = () => {
           <div className="mt-20 text-center">
             <div className="inline-block relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300"></div>
-              <Link to={'/products'} className="relative bg-black border-2 border-amber-500 text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-amber-500 cursor-pointer hover:text-black transition-all duration-300">
+              <Link to={'/products'} className="relative bg-black border-2 border-amber-500 text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-amber-500 hover:text-black transition-all duration-300">
                 SHOP THE COLLECTION
               </Link>
             </div>
