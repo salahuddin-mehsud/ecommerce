@@ -108,11 +108,11 @@ const HotDeals = () => {
         <div className="px-4 sm:px-6 lg:px-20">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold dark:text-white text-black mb-4">
               HOT <span className="text-red-500">DEALS</span>
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-amber-500 mx-auto mb-6"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="dark:text-gray-400 text-black max-w-2xl mx-auto">
               Limited time offers! Grab these exclusive deals before they're gone.
             </p>
           </div>
