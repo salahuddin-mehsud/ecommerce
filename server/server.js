@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// Routes salahuddin
 app.use('/api/products', productRoutes);
 app.use('/api/shipping', shippingRoutes);
 app.use('/api/analytics', analyticsRoutes);
