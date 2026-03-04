@@ -8,6 +8,7 @@ import analyticsRoutes from './routes/analytics.js';
 import orderRoutes from './routes/order.js';
 import paymentRoutes from './routes/payments.js';
 import adminRoutes from './routes/admin.js'; // Add this
+import voucherRoutes from './routes/voucher.js';
 
 dotenv.config();
 
@@ -19,13 +20,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes salahuddin
+// Routes
 app.use('/api/products', productRoutes);
 app.use('/api/shipping', shippingRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/admin', adminRoutes); // Add this line
+app.use('/api/vouchers', voucherRoutes);
+
 
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);

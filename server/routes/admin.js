@@ -1520,4 +1520,7 @@ router.post('/public/calculate-checkout', async (req, res) => {
   }
 });
 
+
+export { verifyAdmin };
+
 export default router;
